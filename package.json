@@ -1,0 +1,36 @@
+{
+  "name": "search-and-filter",
+  "version": "1.0.0",
+  "description": "Search and filter arrays example",
+  "main": "index.js",
+  "dependencies": {
+    "json-pokemon": "^1.0.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.6.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.0",
+    "sass": "^1.23.3"
+  },
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmachens/search-and-filter.git"
+  },
+  "keywords": [],
+  "author": "Leon Machens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lmachens/search-and-filter/issues"
+  },
+  "homepage": "https://github.com/lmachens/search-and-filter#readme"
+}
