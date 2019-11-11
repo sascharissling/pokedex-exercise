@@ -1,7 +1,38 @@
 .results {
   font-size: 0.8rem;
+  align-items: center;
 }
 
 .results__empty {
   color: $warning-color;
+}
+
+.results__card {
+  width: 80vw;
+  max-width: 550px;
+  height: auto;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  margin: 3px;
+  //name
+  h3 {
+    font-size: 16px;
+    margin: 3px;
+    color: $accent-color;
+  }
+  //number
+  h4 {
+    font-size: 14px;
+    margin: 8px;
+    color: $secondary-color;
+  }
+  //type
+  p {
+    font-size: 10px;
+    margin: 10px;
+    background: $contrast-color;
+  }
 }

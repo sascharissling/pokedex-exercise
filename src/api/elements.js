@@ -1,8 +1,6 @@
-/**
- * <div class="results__empty">
- *    No Pokemons found
- * </div>
- */
+const resultsElement = document.querySelector('.results');
+import pokemons from 'json-pokemon';
+
 export function createNoPokemons() {
   const element = document.createElement('div');
   element.className = 'results__empty';
@@ -12,17 +10,30 @@ export function createNoPokemons() {
 }
 
 export function createPokemons(pokemons) {
-  /**
-   * This function could receive an array of pokemons and creates elements for each of them.
-   * You can use createPokemon to create a single element.
-   */
+  const pokeCard = document.createElement('div');
+  const pokeName = document.createElement('h3');
+  const pokeNumber = document.createElement('h4');
+  const pokeType = document.createElement('p');
+
+  pokeCard.className = 'results__card';
+
+  appendChild(resultsElement, pokeCard);
+  appendChild(pokeCard, pokeName);
+  appendChild(pokeCard, pokeNumber);
+  appendChild(pokeCard, pokeType);
+
+  pokeName.innerHTML = pokemons.name;
+  pokeNumber.innerHTML = pokemons.id;
+  pokeType.innerHTML = pokemons.typeList;
+
+  appendChild(resultsElement, pokeCard);
 }
 
-export function createPokemon(pokemon) {
-  /**
-   * This function could create a new element and displays the properties of a pokemon.
-   */
-}
+// export function createPokemon(pokemon) {
+//   /**
+//    * This function could create a new element and displays the properties of a pokemon.
+//    */
+// }
 
 export function removeChilds(parent) {
   parent.innerHTML = '';
