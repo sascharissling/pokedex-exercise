@@ -10,8 +10,8 @@
   </head>
   <body>
     <header>
-      <h1 class="title">Pokedex</h1>
-      <h2 class="subtitle">Catch 'Em All!</h2>
+      <h1 class="title">Pokédex</h1>
+      <h2 class="subtitle">Gotta Catch 'Em All!</h2>
     </header>
     <aside>
       <label class="search">
@@ -21,9 +21,18 @@
           placeholder="Enter Pokemon name"
           class="search__input"
         />
+        <select
+          data-select
+          class="search__selector"
+          name="select"
+          id="dropDown"
+        >
+          <option data-name-sort value="sort-by-name">Sort by name</option>
+          <option data-id-sort value="sort-by-number">Sort by number</option>
+        </select>
       </label>
-      <!-- Wouldn't it be great to sort your results? Add a select element 🤖 -->
     </aside>
+    <!-- Wouldn't it be great to sort your results? Add a select element 🤖 -->
     <main class="results"></main>
     <script src="index.js"></script>
   </body>

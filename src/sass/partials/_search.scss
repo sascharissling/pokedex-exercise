@@ -3,11 +3,28 @@
   display: inline-flex;
   align-items: center;
   margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .search__input {
-  background: $primary-color;
+  background: transparent;
   color: $contrast-color;
-  border: 2px solid $secondary-color;
-  margin-left: 4px;
+  border: 2px solid white;
+  margin: 6px;
+  color: white;
+  font-size: 14px;
+  font-family: $font-family;
+  width: 80vw;
+  max-width: 300px;
+}
+
+.search__selector {
+  background: #b0b0b0;
+  color: white;
+  font-size: 14px;
+  font-family: $font-family;
+  border: 2px solid white;
+  width: 80vw;
+  max-width: 300px;
 }
