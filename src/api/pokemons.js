@@ -7,21 +7,24 @@
  * There are some helper functions which makes this task easier, but please try to implement your own filter and search logic.
  */
 import pokemons from 'json-pokemon';
-import { type } from 'os';
 
-// BY NAME
-export function getPokemonsByName(pokemonName) {
-  const foundPokemons = pokemons.filter(({ name }) =>
-    name.toLowerCase().match(pokemonName.toLowerCase())
-  );
-  return foundPokemons;
+export function getAllPokemons() {
+  return pokemons;
 }
 
-// // BY ID
+// // BY NAME
+// export function getPokemonsByName(pokemonName) {
+//   const foundPokemons = pokemons.filter(({ name }) =>
+//     name.toLowerCase().match(pokemonName.toLowerCase())
+//   );
+//   return foundPokemons;
+// }
+
+// //  BY ID
 
 // export function getPokemonsById(pokemonId) {
 //   const foundPokemons = pokemons.filter(({ id }) =>
-//     id.toLowerCase().match(pokemonId.toLowerCase())
+//     id.toString().match(pokemonId)
 //   );
 //   return foundPokemons;
 // }
