@@ -7,10 +7,6 @@ export function createNoPokemons() {
 }
 
 export function createPokemonElements(pokemons, resultsElement) {
-  /**
-   * This function could receive an array of pokemons and creates epaElements for each of them.
-   * You can use createPokemon to create a single element.
-   */
   pokemons.forEach(pokemon => {
     const pokemonElement = createPokemon(pokemon);
     resultsElement.appendChild(pokemonElement);
@@ -35,12 +31,6 @@ export function createPokemon(pokemons) {
 
   return pokeCard;
 }
-
-// export function createPokemon(pokemon) {
-//   /**
-//    * This function could create a new element and displays the properties of a pokemon.
-//    */
-// }
 
 export function removeChilds(parent) {
   parent.innerHTML = '';
