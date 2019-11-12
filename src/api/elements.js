@@ -1,6 +1,3 @@
-const resultsElement = document.querySelector('.results');
-import pokemons from 'json-pokemon';
-
 export function createNoPokemons() {
   const element = document.createElement('div');
   element.className = 'results__empty';
@@ -9,7 +6,18 @@ export function createNoPokemons() {
   return element;
 }
 
-export function createPokemons(pokemons) {
+export function createPokemonElements(pokemons, resultsElement) {
+  /**
+   * This function could receive an array of pokemons and creates epaElements for each of them.
+   * You can use createPokemon to create a single element.
+   */
+  pokemons.forEach(pokemon => {
+    const pokemonElement = createPokemon(pokemon);
+    resultsElement.appendChild(pokemonElement);
+  });
+}
+
+export function createPokemon(pokemons) {
   const pokeCard = document.createElement('div');
   const pokeName = document.createElement('h3');
   const pokeNumber = document.createElement('h4');
@@ -17,7 +25,6 @@ export function createPokemons(pokemons) {
 
   pokeCard.className = 'results__card';
 
-  appendChild(resultsElement, pokeCard);
   appendChild(pokeCard, pokeName);
   appendChild(pokeCard, pokeNumber);
   appendChild(pokeCard, pokeType);
@@ -26,7 +33,7 @@ export function createPokemons(pokemons) {
   pokeNumber.innerHTML = pokemons.id;
   pokeType.innerHTML = pokemons.typeList;
 
-  appendChild(resultsElement, pokeCard);
+  return pokeCard;
 }
 
 // export function createPokemon(pokemon) {

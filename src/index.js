@@ -1,6 +1,7 @@
 import {
   createNoPokemons,
   createPokemons,
+  createPokemonElements,
   setChild,
   resetInput,
   removeChilds
@@ -9,46 +10,46 @@ import {
 import {
   getPokemonsByName,
   getPokemonsByType,
-  getPokemonsById
+  getPokemonsById,
+  getAllPokemons
 } from './api/pokemons';
 
 // Query elements
 const searchInput = document.querySelector('.search__input');
 const resultsElement = document.querySelector('.results');
-const sortByName = document.querySelector('[data-name-sort]');
-const sortByNumber = document.querySelector('[data-id-sort]');
+
+const allPokemons = getAllPokemons();
 
 // Reset input and results
 resetInput(searchInput);
-setChild(resultsElement, createNoPokemons());
-
-// Add event listeners
+createPokemonElements(allPokemons, resultsElement);
 
 let pokeNameSearch = '';
-let pokeTypeSearch = '';
 let pokeNumberSearch = '';
+let pokeTypeSearch = '';
 
 // Search By Name
 
-searchInput.addEventListener('change', function() {
+searchInput.addEventListener('input', event => {
   removeChilds(resultsElement);
-  pokeTypeSearch = [];
   pokeNumberSearch = [];
+  pokeTypeSearch = [];
   pokeNameSearch = getPokemonsByName(searchInput.value);
   pokeNameSearch.forEach(createPokemons);
 });
 
 // // Search By ID
-// searchInput.addEventListener('change', function() {
+// searchInput.addEventListener('input', event => {
 //   removeChilds(resultsElement);
-//   pokeTypeSearch = [];
 //   pokeNameSearch = [];
+//   pokeTypeSearch = [];
 //   pokeNumberSearch = getPokemonsById(searchInput.value);
 //   pokeNumberSearch.forEach(createPokemons);
 // });
 
-// // Search By Type
-// searchInput.addEventListener('change', function() {
+// // BY TYPE
+
+// searchInput.addEventListener('input', event =>) {
 //   removeChilds(resultsElement);
 //   pokeNumberSearch = [];
 //   pokeNameSearch = [];
