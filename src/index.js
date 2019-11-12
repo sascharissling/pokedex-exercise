@@ -17,45 +17,22 @@ import {
 // Query elements
 const searchInput = document.querySelector('.search__input');
 const resultsElement = document.querySelector('.results');
-
 const allPokemons = getAllPokemons();
 
 // Reset input and results
 resetInput(searchInput);
 createPokemonElements(allPokemons, resultsElement);
 
-let pokeNameSearch = '';
-let pokeNumberSearch = '';
-let pokeTypeSearch = '';
-
 // Search By Name
 
 searchInput.addEventListener('input', event => {
+  const searchValue = event.target.value;
+  const pokemons = getPokemonsByName(searchValue);
   removeChilds(resultsElement);
-  pokeNumberSearch = [];
-  pokeTypeSearch = [];
-  pokeNameSearch = getPokemonsByName(searchInput.value);
-  pokeNameSearch.forEach(createPokemons);
+  createPokemonElements(pokemons, resultsElement);
+
+  //setChild(resultsElement, pokemonElements);
 });
-
-// // Search By ID
-// searchInput.addEventListener('input', event => {
-//   removeChilds(resultsElement);
-//   pokeNameSearch = [];
-//   pokeTypeSearch = [];
-//   pokeNumberSearch = getPokemonsById(searchInput.value);
-//   pokeNumberSearch.forEach(createPokemons);
-// });
-
-// // BY TYPE
-
-// searchInput.addEventListener('input', event =>) {
-//   removeChilds(resultsElement);
-//   pokeNumberSearch = [];
-//   pokeNameSearch = [];
-//   pokeTypeSearch = getPokemonsByType(searchInput.value);
-//   pokeTypeSearch.forEach(createPokemons);
-// });
 
 /**
  * Later, you can add sort functionality.
