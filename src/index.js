@@ -1,48 +1,45 @@
+import 'babel-polyfill';
+
 import {
-  createNoPokemons,
-  createPokemons,
   createPokemonElements,
-  setChild,
   resetInput,
   removeChilds
 } from './api/elements';
 
 import {
   getPokemonsByName,
-  getPokemonsByType,
-  getPokemonsById,
   getAllPokemons,
-  sortPokemonsByName
+  sortPokemonsByName,
+  initPokemons
 } from './api/pokemons';
 
-// Query elements
-const searchInput = document.querySelector('.search__input');
-const resultsElement = document.querySelector('.results');
-const pokeSort = document.querySelector('[data-sort]');
-const sortAscending = document.querySelector('[data-sort-asc]');
-const sortDescending = document.querySelector('[data-sort-desc]');
-const allPokemons = getAllPokemons();
+initPokemons().then(start);
 
-// Reset input and results
-resetInput(searchInput);
-createPokemonElements(allPokemons, resultsElement);
+function start() {
+  // Query elements
+  const searchInput = document.querySelector('.search__input');
+  const resultsElement = document.querySelector('.results');
+  const pokeSort = document.querySelector('.search__selector');
 
-// Search By Name
-searchInput.addEventListener('input', event => {
-  const searchValue = event.target.value;
-  const pokemons = getPokemonsByName(searchValue);
-  removeChilds(resultsElement);
-  createPokemonElements(pokemons, resultsElement);
+  const allPokemons = getAllPokemons();
+  const allSortedPokemons = sortPokemonsByName(allPokemons);
+  // Reset input and results
+  resetInput(searchInput);
+  createPokemonElements(allSortedPokemons, resultsElement);
 
-  //setChild(resultsElement, pokemonElements);
-});
+  // Search By Name
+  searchInput.addEventListener('input', handleSearch);
 
-const sortablePokemons = resultsElement.firstChild.innerHTML;
+  // Sort function
+  pokeSort.addEventListener('change', handleSearch);
 
-// Sort function
-sortAscending.addEventListener('click', sortPokemonsByName(sortablePokemons));
+  function handleSearch() {
+    const sortDirection = pokeSort.value;
+    const searchValue = searchInput.value;
+    const pokemons = getPokemonsByName(searchValue);
+    const sortedPokemons = sortPokemonsByName(pokemons, sortDirection);
 
-sortDescending.addEventListener(
-  'click',
-  sortPokemonsByName(sortablePokemons, (sortDirection = 'DESC'))
-);
+    removeChilds(resultsElement);
+    createPokemonElements(sortedPokemons, resultsElement);
+  }
+}

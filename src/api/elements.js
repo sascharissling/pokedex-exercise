@@ -27,7 +27,8 @@ export function createPokemon(pokemons) {
   appendChild(pokeCard, pokeNumber);
   appendChild(pokeCard, pokeType);
 
-  pokeName.innerHTML = pokemons.name;
+  pokeName.innerHTML =
+    pokemons.name.charAt(0).toUpperCase() + pokemons.name.slice(1);
   pokeImage.src = pokemons.image;
   pokeNumber.innerHTML = pokemons.id;
   pokeType.innerHTML = pokemons.typeList;
