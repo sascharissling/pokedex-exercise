@@ -11,12 +11,16 @@ import {
   getPokemonsByName,
   getPokemonsByType,
   getPokemonsById,
-  getAllPokemons
+  getAllPokemons,
+  sortPokemonsByName
 } from './api/pokemons';
 
 // Query elements
 const searchInput = document.querySelector('.search__input');
 const resultsElement = document.querySelector('.results');
+const pokeSort = document.querySelector('[data-sort]');
+const sortAscending = document.querySelector('[data-sort-asc]');
+const sortDescending = document.querySelector('[data-sort-desc]');
 const allPokemons = getAllPokemons();
 
 // Reset input and results
@@ -24,7 +28,6 @@ resetInput(searchInput);
 createPokemonElements(allPokemons, resultsElement);
 
 // Search By Name
-
 searchInput.addEventListener('input', event => {
   const searchValue = event.target.value;
   const pokemons = getPokemonsByName(searchValue);
@@ -34,6 +37,12 @@ searchInput.addEventListener('input', event => {
   //setChild(resultsElement, pokemonElements);
 });
 
-/**
- * Later, you can add sort functionality.
- */
+const sortablePokemons = resultsElement.firstChild.innerHTML;
+
+// Sort function
+sortAscending.addEventListener('click', sortPokemonsByName(sortablePokemons));
+
+sortDescending.addEventListener(
+  'click',
+  sortPokemonsByName(sortablePokemons, (sortDirection = 'DESC'))
+);

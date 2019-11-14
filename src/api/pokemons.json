@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Bulbasaur",
+    "id": 001,
+    "typeList": ["Grass", "Poison"],
+    "image": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/bulbasaur.png"
+  },
+  {
+    "name": "Ivysaur",
+    "id": 002,
+    "typeList": ["Grass", "Poison"],
+    "image": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/ivysaur.png"
+  },
+  {
+    "name": "Venusaur",
+    "id": 003,
+    "typeList": ["Grass", "Poison"],
+    "image": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/venusaur.png"
+  },
+  {
+    "name": "Charmander",
+    "id": 004,
+    "typeList": ["Fire"],
+    "image": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/charmander.png"
+  },
+  {
+    "name": "Charmeleon",
+    "id": 005,
+    "typeList": ["Fire"],
+    "image": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/charmeleon.png"
+  },
+  {
+    "name": "Charizard",
+    "id": 006,
+    "typeList": ["Fire"],
+    "image": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/charizard.png"
+  },
+  {
+    "name": "Squirtle",
+    "id": 007,
+    "typeList": ["Water"],
+    "image": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/squirtle.png"
+  }
+]

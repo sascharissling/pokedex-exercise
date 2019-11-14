@@ -1,4 +1,4 @@
-import pokemons from 'json-pokemon';
+import pokemons from './pokemons.json';
 
 export function getAllPokemons() {
   return pokemons;
@@ -13,4 +13,27 @@ export function getPokemonsByName(pokemonName) {
   });
 
   return pickPokemons;
+}
+
+export function sortPokemonsByName(pokemons, sortDirection = 'ASC') {
+  const sortedPokemons = pokemons.sort((pokemonA, pokemonB) => {
+    const nameA = pokemonA.name.toLowerCase();
+    const nameB = pokemonB.name.toLowerCase();
+
+    if (nameA < nameB) {
+      return -1;
+    }
+
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  if (sortDirection === 'DESC') {
+    sortedPokemons.reverse();
+  }
+
+  return sortedPokemons;
 }

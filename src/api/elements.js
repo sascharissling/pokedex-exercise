@@ -15,6 +15,7 @@ export function createPokemonElements(pokemons, resultsElement) {
 
 export function createPokemon(pokemons) {
   const pokeCard = document.createElement('div');
+  const pokeImage = document.createElement('img');
   const pokeName = document.createElement('h3');
   const pokeNumber = document.createElement('h4');
   const pokeType = document.createElement('p');
@@ -22,10 +23,12 @@ export function createPokemon(pokemons) {
   pokeCard.className = 'results__card';
 
   appendChild(pokeCard, pokeName);
+  appendChild(pokeCard, pokeImage);
   appendChild(pokeCard, pokeNumber);
   appendChild(pokeCard, pokeType);
 
   pokeName.innerHTML = pokemons.name;
+  pokeImage.src = pokemons.image;
   pokeNumber.innerHTML = pokemons.id;
   pokeType.innerHTML = pokemons.typeList;
 
